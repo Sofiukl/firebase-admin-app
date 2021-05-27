@@ -21,9 +21,7 @@
 // };
 
 // init();
-const BACKEND_PROTOCOL = process.env.REACT_APP_BACKEND_PROTOCOL;
-const BACKEND_HOST = process.env.REACT_APP_BACKEND_HOST;
-const BACKEND_PORT = process.env.REACT_APP_BACKEND_PORT;
+const REACT_APP_BACKEND = process.env.REACT_APP_BACKEND;
 
 const ERROR_MESSAGE = "Something went wrong. Please try again later.";
 
@@ -44,7 +42,7 @@ const APIPath = (endPoint, params) => {
       .map((key) => `${key}=${encodeURIComponent(params[key])}`)
       .join("&")}`;
   }
-  const path = `${BACKEND_PROTOCOL}://${BACKEND_HOST}:${BACKEND_PORT}/user/${endPoint}`;
+  const path = `${REACT_APP_BACKEND}/user/${endPoint}`;
 
   return querystring === "" ? path : `${path}?${querystring}`;
 };
