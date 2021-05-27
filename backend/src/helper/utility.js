@@ -4,8 +4,7 @@ const getAPIResponse = (data) => ({
 
 const getCatchAPIResponse = (message) => getAPIResponse({ isSuccess: false, message })
 
-const controller =
-  ({ useCase }) =>
+const controller = ({ useCase }) =>
   async (httpRequest) => {
     try {
       const response = await useCase(httpRequest)
@@ -18,4 +17,4 @@ const controller =
 
 const isValidEmailAddress = (text) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(text)
 
-export { controller, getAPIResponse, getCatchAPIResponse, isValidEmailAddress }
+module.exports =  { controller, getAPIResponse, getCatchAPIResponse, isValidEmailAddress }

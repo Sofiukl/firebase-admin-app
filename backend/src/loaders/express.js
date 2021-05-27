@@ -1,13 +1,11 @@
-import { join } from 'path'
-
-import express from 'express'
-import bodyParser from 'body-parser'
-import helmet from 'helmet'
-import nocache from 'nocache'
-import cookieParser from 'cookie-parser'
+const bodyParser = require('body-parser');
+const helmet = require('helmet')
+const nocache = require('nocache')
+const cookieParser = require('cookie-parser')
+const express = require('express')
 const path = require("path");
 
-export default async ({ app }) => {
+const f = async ({ app }) => {
   const allowCrossDomain = (req, res, next) => {
     const allowedMethods = ['GET', 'POST']
     res.header('Access-Control-Allow-Origin', '*')
@@ -44,3 +42,5 @@ export default async ({ app }) => {
     })
   })
 }
+
+module.exports = f

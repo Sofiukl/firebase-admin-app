@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: firebase-backend
+  labels:
+    name: firebase-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: firebase-backend
+  template:
+    metadata:
+      labels:
+        app: firebase-backend
+    spec:
+      containers:
+        - name: firebase-backend
+          image: gcr.io/k8s-explore-309407/admin-service:v10.0
+          env:
+            - name: FIREBASE_DATABASE_URL
+              value: "https://fir-admin-c89ed-default-rtdb.firebaseio.com"
+            - name: BACKEND_PORT
+              value: "80"
+      restartPolicy: Always

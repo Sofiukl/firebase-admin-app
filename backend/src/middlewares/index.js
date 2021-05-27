@@ -1,3 +1,3 @@
-import callController from './callController'
+const callController = require('./callController');
 
-export { callController }
+module.exports =  callController

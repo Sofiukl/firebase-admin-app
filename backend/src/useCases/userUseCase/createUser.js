@@ -24,4 +24,4 @@ const createUser =
       .catch((err) => err.message)
   }
 
-export default createUser
+module.exports = createUser

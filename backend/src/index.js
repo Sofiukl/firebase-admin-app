@@ -1,9 +1,7 @@
-import express from 'express'
+const express = require('express');
+const loaders = require('./loaders')
+const routes = require('./routes')
 
-import { BACKEND_PORT } from './helper/settings'
-
-import loaders from './loaders'
-import routes from './routes'
 
 async function startServer() {
   const app = express()
@@ -12,10 +10,10 @@ async function startServer() {
 
   routes({ app })
 
-  app.listen(BACKEND_PORT, () => {
+  app.listen(process.env.port || 3101, () => {
     // eslint-disable-next-line no-console
-    console.log(`App running on port - ${BACKEND_PORT}`)
+    console.log(`App running on port - ${process.env.port || 3101}`)
   })
 }
 
-startServer()
+startServer();

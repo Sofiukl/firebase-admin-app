@@ -1,4 +1,4 @@
-import { Request, Response } from 'express'
+const { Request, Response } = require('express');
 
 const makeExpressCallabck = (controller) => (req, res) => {
   const httpRequest = {
@@ -16,5 +16,4 @@ const makeExpressCallabck = (controller) => (req, res) => {
     .then((httpResponse) => res.status(200).json(httpResponse.body))
     .catch((error) => res.status(200).json({ isSuccess: false, message: error.message }))
 }
-
-export default makeExpressCallabck
+module.exports = makeExpressCallabck

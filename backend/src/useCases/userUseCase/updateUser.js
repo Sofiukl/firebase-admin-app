@@ -29,5 +29,4 @@ const updateUser =
       }))
       .catch((err) => err.message)
   }
-
-export default updateUser
+module.exports = updateUser

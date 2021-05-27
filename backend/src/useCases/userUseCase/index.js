@@ -1,14 +1,14 @@
-import { isValidEmailAddress } from '../../helper/utility'
-import firebaseUtil from '../../helper/firebase'
+const { isValidEmailAddress } = require('../../helper/utility');
+const firebaseUtil = require('../../helper/firebase');
 
-import userList from './userList'
-import createUser from './createUser'
-import updateUser from './updateUser'
-import deleteUser from './deleteUser'
+const userList = require('./userList');
+const createUser = require('./createUser');
+const updateUser = require('./updateUser');
+const deleteUser = require('./deleteUser');
 
 const userListUseCase = userList({ allUserList: firebaseUtil.allUserList })
 const createUseCase = createUser({ create: firebaseUtil.create, isValidEmailAddress })
 const updateUseCase = updateUser({ update: firebaseUtil.update, isValidEmailAddress })
 const deleteUseCase = deleteUser({ deleteUser: firebaseUtil.delete })
 
-export { userListUseCase, createUseCase, updateUseCase, deleteUseCase }
+module.exports = { userListUseCase, createUseCase, updateUseCase, deleteUseCase }

@@ -1,0 +1,7 @@
+version: "2"
+services:
+  build:
+    image: gcr.io/k8s-explore-309407/admin-service:v10.0
+    build:
+      context: ../
+      dockerfile: buildconfig/Dockerfile

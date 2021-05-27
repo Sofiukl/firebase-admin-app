@@ -1,9 +1,9 @@
-import { userListUseCase, createUseCase, updateUseCase, deleteUseCase } from '../../useCases/userUseCase'
+const { userListUseCase, createUseCase, updateUseCase, deleteUseCase } = require('../../useCases/userUseCase');
 
-import getUserListController from './userListController'
-import postCreateUserController from './createUserController'
-import postUpdateUserController from './updateUserController'
-import postDeleteUserController from './deleteUserController'
+const getUserListController = require('./userListController');
+const postCreateUserController = require('./createUserController');
+const postUpdateUserController = require('./updateUserController');
+const postDeleteUserController = require('./deleteUserController');
 
 const userListController = getUserListController({
   useCase: userListUseCase
@@ -18,4 +18,4 @@ const deleteUserController = postDeleteUserController({
   useCase: deleteUseCase
 })
 
-export { userListController, createUserController, updateUserController, deleteUserController }
+module.exports = { userListController, createUserController, updateUserController, deleteUserController }

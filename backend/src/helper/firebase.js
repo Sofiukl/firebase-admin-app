@@ -1,10 +1,9 @@
-import { FIREBASE_DATABASE_URL } from './settings'
-
+const FIREBASE_DATABASE_URL = 'https://fir-admin-c89ed-default-rtdb.firebaseio.com';
 const admin = require('firebase-admin')
-
 const serviceAccount = require('../../serviceAccountKey.json')
 
 const init = () => {
+  console.log(`FIREBASE_DATABASE_URL: ${JSON.stringify(FIREBASE_DATABASE_URL)}`)
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
     databaseURL: FIREBASE_DATABASE_URL
@@ -25,15 +24,9 @@ const allUserList = () => {
           return { uid, email, passwordHash, passwordSalt }
         })
         return arr
-
-        // if (listUsersResult.pageToken) {
-        //   // List next batch of users.
-        //   listAllUsers(listUsersResult.pageToken)
-        // }
       })
       .catch((error) => error.message || 'Could not fetch')
   }
-  // Start listing users from the beginning, 1000 at a time.
   return listAllUsers()
 }
 
@@ -77,5 +70,4 @@ const firebaseUtil = {
   update,
   delete: remove
 }
-
-export default firebaseUtil
+module.exports = firebaseUtil

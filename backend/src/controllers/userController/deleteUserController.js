@@ -1,5 +1,2 @@
-import { controller } from '../../helper/utility'
-
-const deleteUserController = controller
-
-export default deleteUserController
+const { controller } = require('../../helper/utility');
+module.exports = controller

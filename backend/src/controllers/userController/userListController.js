@@ -1,5 +1,5 @@
-import { controller } from '../../helper/utility'
+const { controller } = require('../../helper/utility');
 
 const userListController = controller
 
-export default userListController
+module.exports = userListController

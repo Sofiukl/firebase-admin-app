@@ -18,4 +18,4 @@ const deleteUser =
       .catch((err) => err.message)
   }
 
-export default deleteUser
+module.exports = deleteUser

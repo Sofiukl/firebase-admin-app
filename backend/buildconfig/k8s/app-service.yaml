@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: firebase-backend
+  labels:
+    app: firebase-backend
+spec:
+  selector:
+    app: firebase-backend
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 80
