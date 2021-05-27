@@ -20,7 +20,7 @@ const f = async ({ app }) => {
       next()
     }
   }
-  app.use(express.static("build"));
+  app.use(express.static(path.join(__dirname, "..", "..", "build", "index.html")));
   app.use(allowCrossDomain)
   app.use(helmet())
   app.use(nocache())
