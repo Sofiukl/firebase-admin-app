@@ -1,0 +1,7 @@
+version: "2"
+services:
+  build:
+    image: admin:v0.1.dev
+    build:
+      context: ../
+      dockerfile: buildconfig/Dockerfile

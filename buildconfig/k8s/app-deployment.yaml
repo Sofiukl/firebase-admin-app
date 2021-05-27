@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: firebase-app
+  labels:
+    name: firebase-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: firebase-app
+  template:
+    metadata:
+      labels:
+        app: firebase-app
+    spec:
+      containers:
+        - name: firebase-app
+          image: gcr.io/k8s-explore-309407/admin-app:v10.0
+          env:
+            - name: REACT_APP_BACKEND_HOST
+              value: "35.226.218.214"
+            - name: REACT_APP_BACKEND_PORT
+              value: "80"
+            - name: REACT_APP_BACKEND_PROTOCOL
+              value: "http"
+      restartPolicy: Always
