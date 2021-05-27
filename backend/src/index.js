@@ -10,7 +10,7 @@ async function startServer() {
 
   routes({ app })
 
-  app.listen(process.env.port || 3101, () => {
+  app.listen(process.env.PORT || 3101, () => {
     // eslint-disable-next-line no-console
     console.log(`App running on port - ${process.env.port || 3101}`)
   })
