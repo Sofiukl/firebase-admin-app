@@ -29,8 +29,8 @@ const f = async ({ app }) => {
   app.use(bodyParser.json())
 
   app.get('/', (req, res) => {
-    console.log(path.join(__dirname, "build", "index.html"))
-    res.sendFile(path.join(__dirname, "build", "index.html"));
+    console.log(path.join(__dirname, "..", "..", "build", "index.html"))
+    res.sendFile(path.join(__dirname, "..", "..", "build", "index.html"));
   })
 
   // have to keep all 4 parameters to work as an error handler
