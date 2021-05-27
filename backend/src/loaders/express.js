@@ -37,6 +37,7 @@ const f = async ({ app }) => {
   // have to keep all 4 parameters to work as an error handler
   // eslint-disable-next-line no-unused-vars
   app.use((error, req, res, next) => {
+    console.log(error)
     res.send({
       isSuccess: false,
       message: 'Something went wrong'
