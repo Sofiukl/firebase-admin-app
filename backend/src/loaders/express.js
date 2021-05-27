@@ -20,7 +20,6 @@ const f = async ({ app }) => {
       next()
     }
   }
-  app.use(express.static(path.join(__dirname, "..", "..", "build")));
   app.use(allowCrossDomain)
   app.use(helmet())
   app.use(nocache())
@@ -31,7 +30,7 @@ const f = async ({ app }) => {
   app.get('/', (req, res) => {
     console.log(path.join(__dirname, "..", "..", "build", "index.html"))
     res.setHeader('Content-Type', 'text/html');
-    res.render(path.join(__dirname, "..", "..", "build", "index.html"));
+    res.render("index.html");
   })
 
   // have to keep all 4 parameters to work as an error handler
