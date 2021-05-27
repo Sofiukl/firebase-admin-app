@@ -11,6 +11,8 @@ async function startServer() {
   routes({ app })
 
   app.use(express.static(path.join(__dirname, "..", "build/static")));
+  app.engine('html', require('ejs').renderFile);
+  app.set('view engine', 'html');
 
   app.listen(process.env.PORT || 3101, () => {
     // eslint-disable-next-line no-console
